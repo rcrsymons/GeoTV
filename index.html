@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GeoTV</title>
+
+<style>
+body{
+margin:0;
+background:black;
+overflow:hidden;
+}
+
+img{
+width:100vw;
+height:100vh;
+object-fit:contain;
+}
+</style>
+
+</head>
+
+<body>
+
+<img id="slide">
+
+<script>
+
+let images = [];
+for(let i=1;i<=30;i++){
+let n = String(i).padStart(2,'0');
+images.push("images/"+n+".jpg");
+}
+
+let index = 0;
+let slide = document.getElementById("slide");
+
+function show(){
+slide.src = images[index];
+index++;
+if(index >= images.length){
+index = 0;
+}
+}
+
+show();
+setInterval(show,10000); // change image every 10 seconds
+
+</script>
+
+</body>
+</html>
